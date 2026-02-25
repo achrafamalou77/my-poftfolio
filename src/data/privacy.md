@@ -1,41 +1,35 @@
-_Last Updated: Dec 2025_
+Last Updated: February 2026
 
-## TL;DR
+TL;DR
+This site is built for speed and privacy. I don’t track you, I don't use cookies, and since I've removed the chatbot, no conversation data is ever stored.
 
-This site doesn’t track you. If you use the chatbot, messages are stored in my database so I can see what people are asking and improve the site.
+Hey 👋
+I'm Achraf Amalou, a software engineering student at USTHB. This website is my personal portfolio where I showcase my projects and professional journey. I value the privacy of my visitors, so I’ve kept this policy as simple as possible.
++2
 
-## Hey 👋
+What I collect (and why)
+This site is a static Next.js application. There are no user accounts, no third-party advertisements, and no tracking scripts monitoring your behavior.
 
-Thanks for stopping by. This is my personal portfolio and blog where I share my work, projects, and thoughts. I care about privacy, so here’s a simple, no-nonsense explanation of how things work.
+Analytics
+I do not use invasive tracking. Any basic site-visit metrics are handled through Vercel's privacy-focused analytics, which do not collect personal identifiable information.
 
-## What I collect (and why)
+Contacting me
+If you reach out to me via the contact form or email, I will only use your information to:
 
-This site is mostly static. There are no accounts, no ads, and no tracking cookies watching what you do.
+Respond to your inquiry.
 
-There are only a couple of cases where information might be stored:
+Discuss potential collaborations or freelance opportunities.
++1
 
-### Chatbot messages
+Data Usage
+I do not sell, trade, or rent any information to third parties. Any data you share through a direct message is used solely to communicate with you.
 
-If you use the chatbot, the messages are stored in my own database. I use them purely to understand what people are asking about, spot gaps in the site, and improve the chatbot and content over time.
+Questions?
+If you have any questions about this site or just want to discuss a project, feel free to reach out:
 
-I’m the only one looking at this data. It’s not shared or sold. Please don’t put anything sensitive or offensive into the chat.
 
-### Contacting me
+Email: achrafamalou3@gmail.com 
 
-If you email me or use the contact form, I’ll only use your email to reply and continue the conversation.
+LinkedIn: Achraf Amalou
 
-## How I use the info
-
-Any information that’s collected is used to:
-
-- Keep the site running properly
-- Improve the site and content
-- Respond to messages and feedback
-
-That’s it.
-
-I don’t sell, trade, or rent personal data. If you accidentally share something you’d rather not have stored, just let me know and I’ll remove it.
-
-## Questions?
-
-If you have questions, concerns, or just want to say hi, email me at [hello@tedawf.com](mailto:hello@tedawf.com) or use the [contact form](/contact). Happy to chat.
+Instagram: @goku_superman_vlogs

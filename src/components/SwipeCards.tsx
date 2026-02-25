@@ -117,7 +117,7 @@ const Card = ({
       {isFront ? (
         <ImageWithSkeleton
           src={url}
-          alt="Photo of Ted"
+          alt="Photo of Achraf"
           width={175}
           height={233}
           sizes="175px"
@@ -157,18 +157,18 @@ type Card = {
 const cardData: Card[] = [
   {
     id: 1,
-    url: "/img/ted-2018.jpg",
+    url: "/img/achraf/achraf-1-color.jpg",
   },
   {
     id: 2,
-    url: "/img/ted-2021.jpg",
+    url: "/img/achraf/achraf-2-bw.jpg",
   },
   {
     id: 3,
-    url: "/img/ted-2024.jpg",
+    url: "/img/achraf/achraf-3-bw-2.jpg",
   },
   {
     id: 4,
-    url: "/img/ted-2025.jpg",
+    url: "/img/achraf/achraf-4-gold.png",
   },
 ];

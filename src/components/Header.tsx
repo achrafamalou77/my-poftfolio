@@ -1,5 +1,4 @@
 import Link from "next/link";
-import ChatToggle from "./ChatToggle";
 import ThemeToggle from "./ThemeToggle";
 
 import routesData from "@/data/routes.json";
@@ -20,14 +19,18 @@ export default function Header() {
           <ul className="flex gap-4 sm:gap-8">
             {navLinks.map((nav, id) => (
               <li key={id} className="link">
-                <Link href={nav.href} title={nav.title}>
+                <Link
+                  href={nav.href}
+                  title={nav.title}
+                  target={nav.name === "resume" ? "_blank" : undefined}
+                  rel={nav.name === "resume" ? "noopener noreferrer" : undefined}
+                >
                   {nav.name}
                 </Link>
               </li>
             ))}
           </ul>
           <div className="flex gap-2 sm:gap-4">
-            <ChatToggle />
             <ThemeToggle />
           </div>
         </nav>

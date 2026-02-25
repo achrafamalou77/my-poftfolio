@@ -1,16 +1,6 @@
 {
   "introduction": {
-    "greeting": "hi ted here. 👋",
-    "description": "Backend by profession, full-stack by passion. I build and self-host the lot.",
-    "chatPrompt": "For Q&A, start a chat with Ted Support",
-    "escalation": {
-      "text": "For any escalations, please find my",
-      "linkText": "Ted Lead",
-      "suffix": "instead."
-    }
-  },
-  "escalationLink": {
-    "href": "https://www.instagram.com/gomugomu.cat",
-    "title": "meow"
+    "greeting": "hi, I'm Achraf . 👋",
+    "description": "Full-Stack Software Engineer driven by a passion for complex problem-solving. Expertise in architecting robust systems, n8n Automation, Cloud Infrastructure, and building scalable applications with Java, Next.js, and Spring Boot."
   }
 }

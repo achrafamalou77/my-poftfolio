@@ -18,7 +18,7 @@ import { Suspense } from "react";
 
 import homeContent from "@/data/home.json";
 
-const TED_BIRTH_YEAR = 1997;
+const TED_BIRTH_YEAR = 2005;
 const LIMIT = 2; // max show 2
 
 async function RecentPosts() {
@@ -42,37 +42,19 @@ export default function Home() {
           </h1>
 
           <p className="mt-2 whitespace-nowrap text-sm font-medium sm:text-base">
-            {currentAge}yo software engineer from Singapore 🇸🇬
+            {currentAge}yo software engineer from Algiers, Algeria 🇩🇿
           </p>
 
           <p className="mt-4 max-w-sm text-balance text-sm sm:text-base">
             {homeContent.introduction.description}
           </p>
 
-          <div className="mt-6 flex items-center gap-1">
-            <p className="text-balance text-sm font-semibold sm:text-base">
-              {homeContent.introduction.chatPrompt}
-            </p>
-            <ArrowDownRight className="hidden size-5 animate-bounce sm:block" />
-            <ArrowDown className="block size-5 animate-bounce sm:hidden" />
-          </div>
-
-          <p className="mt-1 text-xs font-light">
-            {homeContent.introduction.escalation.text}&nbsp;
+          <section className="mt-8 flex flex-wrap items-center gap-4">
             <Link
-              href={homeContent.escalationLink.href}
+              href="https://www.dropbox.com/scl/fi/wdtofy4zjk4e3nnyhgkzr/resume.pdf?rlkey=682z9xqkdsag8fzd9wkms6yps&st=1qdvtv2r&dl=0"
               target="_blank"
-              className="link font-semibold underline"
-              title={homeContent.escalationLink.title}
+              rel="noopener noreferrer"
             >
-              {homeContent.introduction.escalation.linkText}
-            </Link>
-            &nbsp;
-            {homeContent.introduction.escalation.suffix}
-          </p>
-
-          <section className="mt-6 flex flex-wrap items-center gap-4">
-            <Link href="/resume.pdf" target="_blank">
               <Button variant="outline">
                 <span className="font-semibold">Resume</span>
                 <FileDown className="ml-2 size-5" />

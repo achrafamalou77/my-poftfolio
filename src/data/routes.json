@@ -31,17 +31,29 @@
       "showInNav": false
     },
     {
-      "path": "/resume.pdf",
+      "path": "https://www.dropbox.com/scl/fi/wdtofy4zjk4e3nnyhgkzr/resume.pdf?rlkey=682z9xqkdsag8fzd9wkms6yps&st=1qdvtv2r&dl=0",
       "name": "resume",
-      "description": "Ted's resume CV in pdf format",
-      "showInNav": false
+      "description": "Achraf Amalou's resume CV in pdf format",
+      "showInNav": true
     }
   ],
   "externalLinks": [
     {
-      "path": "https://www.instagram.com/gomugomu.cat",
+      "path": "https://github.com/achrafamalou77",
+      "name": "github",
+      "description": "My code repositories",
+      "isExternal": true
+    },
+    {
+      "path": "https://www.linkedin.com/in/achraf-amalou-6b5a55228/",
+      "name": "linkedin",
+      "description": "Professional network",
+      "isExternal": true
+    },
+    {
+      "path": "https://www.instagram.com/goku_superman_vlogs/",
       "name": "instagram",
-      "description": "Ted Lead for escalations (joke reference to cat's account)",
+      "description": "Social life",
       "isExternal": true
     }
   ]

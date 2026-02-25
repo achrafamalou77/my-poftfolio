@@ -2,17 +2,22 @@
   "socials": [
     {
       "name": "LinkedIn",
-      "href": "https://linkedin.com/in/tedawf",
+      "href": "https://www.linkedin.com/in/achraf-amalou-6b5a55228/",
       "icon": "linkedin"
     },
     {
       "name": "GitHub",
-      "href": "https://github.com/tedawf",
+      "href": "https://github.com/achrafamalou77",
       "icon": "github"
     },
     {
+      "name": "Instagram",
+      "href": "https://www.instagram.com/goku_superman_vlogs/",
+      "icon": "instagram"
+    },
+    {
       "name": "Email",
-      "href": "mailto:hello@tedawf.com",
+      "href": "mailto:achrafamalou3@gmail.com",
       "icon": "mail"
     }
   ]

@@ -1,3 +1,7 @@
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+
 export type PostSummary = {
   id: string;
   slug: string;
@@ -17,61 +21,82 @@ export type PostDetail = PostSummary & {
   content: string;
 };
 
-const TACOS_API_URL = process.env.TACOS_API_URL || "http://localhost:8000";
-const TACOS_API_KEY = process.env.TACOS_API_KEY || "";
-const POSTS_REVALIDATE_SECONDS = 600;
+const postsDirectory = path.join(process.cwd(), "content");
 
-type FetchWithApiKeyOptions = {
-  tags?: string[];
-  revalidateSeconds?: number;
-};
-
-const fetchWithApiKey = async (
-  url: string,
-  options: FetchWithApiKeyOptions = {},
-) => {
-  const { tags, revalidateSeconds } = options;
-  const res = await fetch(url, {
-    ...(process.env.NODE_ENV === "production"
-      ? {
-          next: {
-            revalidate: revalidateSeconds ?? POSTS_REVALIDATE_SECONDS,
-            ...(tags ? { tags } : {}),
-          },
-        }
-      : { cache: "no-store" }),
-    headers: {
-      "X-TACOS-Key": TACOS_API_KEY,
-    },
-  });
-
-  if (!res.ok) {
-    throw new Error(`Failed to fetch ${url}: ${res.status}`);
-  }
-  return res.json();
-};
+function calculateReadingTime(content: string): string {
+  const wordsPerMinute = 200;
+  const numberOfWords = content.split(/\s/g).length;
+  const minutes = Math.ceil(numberOfWords / wordsPerMinute);
+  return `${minutes} min read`;
+}
 
 export async function getPosts(limit?: number): Promise<PostSummary[]> {
-  try {
-    const posts: PostSummary[] = await fetchWithApiKey(
-      `${TACOS_API_URL}/posts`,
-      { tags: ["posts"] },
-    );
-    // Posts already sorted by publishedAt desc from the API
-    return limit ? posts.slice(0, limit) : posts;
-  } catch (err) {
-    console.error("Error fetching posts:", err);
+  if (!fs.existsSync(postsDirectory)) {
     return [];
   }
+
+  const fileNames = fs.readdirSync(postsDirectory);
+  const allPostsData = fileNames
+    .filter((fileName) => fileName.endsWith(".mdx"))
+    .map((fileName) => {
+      const slug = fileName.replace(/\.mdx$/, "");
+      const fullPath = path.join(postsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, "utf8");
+      const { data, content } = matter(fileContents);
+
+      return {
+        id: slug,
+        slug,
+        title: data.title || slug,
+        summary: data.summary || "",
+        image: data.image || "",
+        publishedAt: data.publishedAt || "",
+        updatedAt: data.updatedAt || data.publishedAt || "",
+        tags: data.tags || [],
+        readingTime: calculateReadingTime(content),
+        draft: !!data.draft,
+        coAuthors: data.coAuthors || [],
+        views: 0,
+      } as PostSummary;
+    });
+
+  // Sort posts by date
+  const sortedPosts = allPostsData.sort((a, b) => {
+    if ((a.publishedAt || "") < (b.publishedAt || "")) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+
+  return limit ? sortedPosts.slice(0, limit) : sortedPosts;
 }
 
 export async function getPostBySlug(slug: string): Promise<PostDetail | null> {
   try {
-    const post: PostDetail = await fetchWithApiKey(
-      `${TACOS_API_URL}/posts/${slug}`,
-      { tags: ["posts", `post:${slug}`] },
-    );
-    return post;
+    const fullPath = path.join(postsDirectory, `${slug}.mdx`);
+    if (!fs.existsSync(fullPath)) {
+      return null;
+    }
+
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const { data, content } = matter(fileContents);
+
+    return {
+      id: slug,
+      slug,
+      title: data.title || slug,
+      summary: data.summary || "",
+      image: data.image || "",
+      publishedAt: data.publishedAt || "",
+      updatedAt: data.updatedAt || data.publishedAt || "",
+      tags: data.tags || [],
+      readingTime: calculateReadingTime(content),
+      draft: !!data.draft,
+      coAuthors: data.coAuthors || [],
+      views: 0,
+      content,
+    } as PostDetail;
   } catch (err) {
     console.error(`Error fetching post ${slug}:`, err);
     return null;

@@ -11,9 +11,9 @@ export default function Socials() {
         <a
           href={item.href}
           key={item.name}
-          target="_blank"
+          target={item.href.startsWith("mailto:") ? undefined : "_blank"}
+          rel={item.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
           className="text-muted-foreground hover:text-foreground"
-          rel="noopener noreferrer"
           title={item.name}
         >
           <span className="sr-only">{item.name}</span>

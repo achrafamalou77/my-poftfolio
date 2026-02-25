@@ -78,7 +78,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
     updatedAt &&
     updatedAt !== publishedAt &&
     new Date(updatedAt).getTime() >
-      new Date(publishedAt || updatedAt).getTime();
+    new Date(publishedAt || updatedAt).getTime();
 
   return (
     <div className="min-h-screen bg-background">
