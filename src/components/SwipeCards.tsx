@@ -169,6 +169,6 @@ const cardData: Card[] = [
   },
   {
     id: 4,
-    url: "/img/achraf/achraf-4-gold.png",
+    url: "/img/achraf/achraf-4-gold.jpg",
   },
 ];
